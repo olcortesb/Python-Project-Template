@@ -5,6 +5,10 @@ from functools import total_ordering
 from math import sqrt
 from typing import SupportsFloat
 
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 @total_ordering
 class Vector2D:
@@ -87,6 +91,7 @@ class Vector2D:
         """
         if not isinstance(other_vector, Vector2D):
             raise TypeError("You must pass in a Vector2D instance!")
+        logger.error(f'Add operations: You vector is and instance of  Vector2D {self}, {Vector2D}')
         x = self.x + other_vector.x
         y = self.y + other_vector.y
         return Vector2D(x, y)
